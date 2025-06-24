@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Name - CV</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      color: #000;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .tab-button {
+      padding: 12px 20px;
+      border: none;
+      background-color: #460035;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      background-color: white;
+      color: #460035;
+      border: 2px solid #460035;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Name</h1>
+
+  <!-- Navigation Tabs -->
+  <div class="tabs">
+    <button class="tab-button active" data-tab="about">About me</button>
+    <button class="tab-button" data-tab="publications">Publications</button>
+    <button class="tab-button" data-tab="grants">Grants</button>
+    <button class="tab-button" data-tab="cv">CV</button>
+    <button class="tab-button" data-tab="news">Public outreach and news</button>
+  </div>
+
+  <!-- Tab Sections -->
+  <div id="about" class="tab-content active">
+    <h2>About me</h2>
+    <p>I am professor in genetic epidemiology and study director for postgraduate studies at the Department of Medical Epidemiology and Biostatistics. I am also deputy head of department and member of MEB's Executive Group.</p>
+  </div>
+
+  <div id="publications" class="tab-content">
+    <h2>Publications</h2>
+    <p>Details about your key publications go here. You can link to Google Scholar or list selected papers.</p>
+  </div>
+
+  <div id="grants" class="tab-content">
+    <h2>Grants</h2>
+    <p>Information about awarded research grants, amounts, project titles, etc.</p>
+  </div>
+
+  <div id="cv" class="tab-content">
+    <h2>CV</h2>
+    <p>This can be a downloadable CV or an inline summary of your education, experience, and skills.</p>
+  </div>
+
+  <div id="news" class="tab-content">
+    <h2>Public outreach and news</h2>
+    <p>Media appearances, public lectures, outreach work, or recent news coverage about your work.</p>
+  </div>
+
+  <!-- Tab functionality -->
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active from all buttons and contents
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(tab => tab.classList.remove('active'));
+
+        // Add active to current button and content
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
